@@ -15,7 +15,24 @@ Ex:
 
 void Ex4(char *str){
 	//Your codes here
-	
+	 int size = strlen(str);
+  char formattedStr[size];
+  memset(formattedStr, '\0', size);
+  int i = 0, j = 0;
+  while (str[i] == ' ' && i < size) {
+    i++;
+  }
+  for (i; i < size - 1; ++i) {
+    formattedStr[j] = str[i];
+    ++j;
+    while (str[i] == ' ' && str[i + 1] == ' ') {
+      ++i;
+    }
+  }
+  if (str[size - 1] != ' ') {
+    formattedStr[size - 1] = str[size - 1];
+  }
+  printf("%s", formattedStr);
 }
 
 int main(int argc, char *argv[]) {
